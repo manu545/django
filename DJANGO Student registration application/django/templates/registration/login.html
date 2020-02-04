@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    {% if form.errors %}
+        <center>
+<div class="alert alert-warning">
+<p>Your username and password didn't match. Please try again.</p>
+</div>
+        </center>
+{% endif %}
+
+    {% if user.is_authenticated %}
+        <center>
+<div class="alert alert-warning">
+<p>You are already logged in ! Nice Try ! 😜</p>
+</div>
+        </center>
+    {% endif %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Please Sign In</h3>
+                </div>
+                <div class="panel-body">
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+
+                        <p class="bs-component">
+                            <table>
+                                <tr>
+                                    <td>{{ form.username.label_tag }}</td>
+                                    <td>{{ form.username }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ form.password.label_tag }}</td>
+                                    <td>{{ form.password }}</td>
+                                </tr>
+                            </table>
+                        </p>
+                        <p class="bs-component">
+                            <center>
+                                <input class="btn btn-success btn-sm" type="submit" value="Login" />
+                              &nbsp;
+                            </center>
+                              &nbsp;
+                            <center>
+                                <a href="/reg/new" class="btn btn-primary" role="button">New user? Register Now !</a>
+                             </center>
+                        </p>
+                        <input type="hidden" name="next" value="{{ next }}" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+
+
+<script>
+{% if not user.is_authenticated %}
+$("ul.nav.navbar-nav.navbar-right").css("display","none");
+{% endif %}
+</script>
+
+<script>
+{% if user.is_authenticated %}
+        $("div.login-panel.panel.panel-default").css("display","none");
+</script>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="jumbotron">
+                <h2>{{ user.get_full_name }}</h2>
+<ul>
+    <li>Username        :       {{ user.username }}</li>
+    <li>Address         :       {{ user.profile.address }}</li>
+    <li>Birth Date      :       {{ user.profile.birthdate }}</li>
+    <li>Roll number     :       {{ user.profile.roll}}</li>
+    <li>Student Phone   :       {{user.profile.phone}}</li>
+    <li>PIN Code        :       {{user.profile.pin}}</li>
+    <li>City            :       {{user.profile.city}}</li>
+    <li>Parent name     :       {{user.profile.parent_name }}</li>
+    <li>Parent Phone    :       {{user.profile.parent_phone}}</li>
+</ul>
+  <a href="/" class="btn btn-info" role="button">Return Home</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--  form to take user input -->
+    <div id="home" class="col-md-4" >
+              <form class="input-form text-center">
+                  <input type="text" placeholder="Enter your name" />
+
+
+                  <select >{% for festive in value1 %}
+                      <option value=''>{{ festive}}</option>
+                  </select>
+
+                  <button type="button" id="btn" >Create</button>
+                  {% endfor %}
+              </form>
+    </div>
+</body>
+</html>

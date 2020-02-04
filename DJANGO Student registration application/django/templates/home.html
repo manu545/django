@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="jumbotron">
+            <h1>Welcome {{request.user.username}}</h1>
+            <p>You are on your Dashboard</p>
+            <p>Click <a href="/user/updateprofile/">here</a> to edit your registration form</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

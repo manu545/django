@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Student Registration</title>
+                <!-- Core CSS - Include with every page -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+          <link href = "http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+      <!-- Javascript -->
+      <script>
+         $(function() {
+            $( "#id_birthdate" ).datepicker({ dateFormat: 'dd/mm/yy' });
+
+         });
+      </script>
+        <script>
+            $(document).ready(function(){
+	$("#nav li").hover(
+	function(){
+		$(this).children('ul').hide();
+		$(this).children('ul').slideDown('fast');
+	},
+	function () {
+		$('ul', this).slideUp('fast');
+	});
+});</script>
+</head>
+ <body>
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="/">Student Registration Application</a>
+                            </div>
+                           <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="/">Home</a>
+                                            </li>
+                                            <li>
+                                                <a href="/user/profile/">See Registration Form</a>
+                                            </li>
+                                            <li>
+                                                <a href="/user/updateprofile">Update Registration Form</a>
+                                            </li>
+                                            <li class="divider"></li>
+
+                                            <li class="divider"></li>
+                                            <li>
+                                                <a href="/logout">Logout</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>-->
+                        </div>
+                    </nav>
+
+    <div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Edit Student Details </h3>
+                </div>
+                <div class="panel-body">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ user_form.as_p }}
+                     {{ profile_form.as_p }}
+                    <center>
+                    <input class="btn btn-primary" role="button" type="submit"/>
+                    </center>
+                </form>
+           </div>
+       </div>
+    </div>
+    </div>
+    </div>
+ </body>
